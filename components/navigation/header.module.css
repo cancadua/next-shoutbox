@@ -3,12 +3,11 @@
     left: 0;
     right: 0;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    background-color: cornflowerblue;
-    padding: 15px;
-    margin: 10px;
+    background-color: #cde456;
+    position: fixed;
 }
 
 .navbar a {
@@ -17,13 +16,37 @@
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 100px;
     margin-right: 50px;
 }
 
+.logo:hover {
+    background-color: #abc456;
+
+}
+
 .list {
+    margin: 0;
     list-style: none;
     display: flex;
     gap: 25px;
+}
+
+.list li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 120px;
+}
+
+.list li:hover {
+    cursor: pointer;
+    background-color: #abc456;
 }
 
 .navbar label {
@@ -46,12 +69,16 @@
 
     .navbar label {
         display: inline-flex;
-        align-items: center;
+        align-items: flex-end;
         cursor: pointer;
     }
 
-    #toggler:checked ~ .menu{
+    input[id="menu"]:checked ~ .menu{
         max-height: 100%;
-        overflow: auto;
     }
+    input[id="menu"]:checked ~ .logo{
+        display: none;
+        visibility: hidden;
+    }
+
 }
