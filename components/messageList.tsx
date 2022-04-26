@@ -1,9 +1,9 @@
 import './messageList.module.css';
 import MessageComponent from "./messageComponent";
-import {getMessages, request} from "./dataProvider";
+import {request} from "./dataProvider";
 import {useEffect, useState} from "react";
 import {Message} from "../model/Message";
-import {log} from "util";
+
 
 const MessageList = () => {
 
@@ -13,16 +13,19 @@ const MessageList = () => {
             try {
                 const res = await request<Message[]>('http://localhost:8080/api/messages');
                 setMessages(res)
-                console.log(messages)
-            }
-            catch (error) {
+            } catch (error) {
             }
         })()
     }, []);
 
     return (
-        <MessageComponent/>
-    );
+        <>
+            {messages?.map((message: Message, index: number) => {
+                return (
+                    <MessageComponent key={index} {...message}/>
+                )})}
+        </>
+    )
 };
 
 export default MessageList;

@@ -6,10 +6,9 @@ import MessageList from "../components/messageList";
 
 
 const MessagesPage = () => {
+
     return (
-        <div className={styles.container}>
-            <MessageList/>
-        </div>
+        <MessageList/>
     )
 }
 
