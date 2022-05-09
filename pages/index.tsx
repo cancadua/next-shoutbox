@@ -1,10 +1,11 @@
 import type { ReactElement } from 'react'
 
 import Layout from "../components/layout";
+import MessagesPage from "./messagesPage";
 
 const Page = () => {
   return (
-      <>Hej</>
+      <MessagesPage/>
   )
 }
 

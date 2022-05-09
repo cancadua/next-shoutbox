@@ -73,12 +73,4 @@
         cursor: pointer;
     }
 
-    input[id="menu"]:checked ~ .menu{
-        max-height: 100%;
-    }
-    input[id="menu"]:checked ~ .logo{
-        display: none;
-        visibility: hidden;
-    }
-
 }

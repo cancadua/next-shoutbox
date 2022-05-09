@@ -1,4 +1,5 @@
-import MessageComponent from "./messageComponent";
+import {Message} from "../model/Message";
+import {PostMessage} from "../model/PostMessage";
 
 const getMessages = async () => {
     await fetch('http://localhost:8080/api/messages')
@@ -12,19 +13,23 @@ const getMessage = async () => {
         .then((data) => {return data})
 }
 
-const postMessage = async (data: typeof MessageComponent) => {
+const postMessage = async (data: PostMessage) => {
 
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
     };
 
     await fetch('http://localhost:8080/api/message', requestOptions)
-        .then(response => response.json())
+        .then(res => res.json())
+        .then((data) => {return data})
 }
 
-const putMessage = async (data: typeof MessageComponent) => {
+const putMessage = async (data: Message) => {
     const requestOptions = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
