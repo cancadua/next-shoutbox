@@ -5,12 +5,11 @@ import Page from "./index";
 import MessageList from "../components/messageList";
 import {useState} from "react";
 import {postMessage} from "../components/dataProvider";
-import {PostMessage} from "../model/PostMessage";
 import {Message} from "../model/Message";
 
 
 const MessagesPage = () => {
-    const [content, setContent] = useState<PostMessage>({});
+    const [content, setContent] = useState<Message>({});
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()

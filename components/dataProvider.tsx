@@ -1,5 +1,4 @@
 import {Message} from "../model/Message";
-import {PostMessage} from "../model/PostMessage";
 
 const getMessages = async () => {
     await fetch('http://localhost:8080/api/messages')
@@ -13,7 +12,7 @@ const getMessage = async () => {
         .then((data) => {return data})
 }
 
-const postMessage = async (data: PostMessage) => {
+const postMessage = async (data: Message) => {
 
     const requestOptions = {
         method: 'POST',
