@@ -1,7 +1,7 @@
 import type { FormEvent, ReactElement} from 'react'
 import Layout from "../components/layout";
 import MessageList from "../components/messageList";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {postMessage} from "../components/dataProvider";
 import {Message} from "../model/Message";
 import styles from './messagesPage.module.css'
@@ -15,10 +15,6 @@ const MessagesPage = () => {
         e.preventDefault()
         postMessage(content).then(() => window.location.reload());
     };
-
-    useEffect(() => {
-
-    })
 
     return (
         <>

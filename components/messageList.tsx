@@ -12,7 +12,7 @@ const MessageList = () => {
     useEffect(() => {(async () => {
             try {
                 const res = await request<Message[]>('http://localhost:8080/api/messages');
-                setMessages(res)
+                setMessages(res.reverse())
             } catch (error) {
             }
         })()
