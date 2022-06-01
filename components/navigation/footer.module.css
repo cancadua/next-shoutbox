@@ -1,10 +1,12 @@
 .footer {
+    color: #FFFFFF;
     display: flex;
     justify-content: flex-end;
     bottom: 0;
     right: 0;
     left: 0;
-    background-color: #cde456;
+    background-color: #222831;
     padding: 15px;
     position: fixed;
+    border-top: solid 1px #314f52;
 }
