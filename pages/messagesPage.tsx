@@ -8,12 +8,15 @@ import styles from './messagesPage.module.css'
 import {IoMdSend } from 'react-icons/io';
 
 const MessagesPage = () => {
+    const [temporaryPosts, setTemporaryPosts] = useState<Message[]>([]);
     const [content, setContent] = useState<Message>({content: '', login: ''});
     // const [user, setUser] = useState('');
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        console.log(temporaryPosts)
         e.preventDefault()
-        postMessage(content).then(() => window.location.reload());
+        setTemporaryPosts(prevPosts => [...prevPosts, content]);
+        // postMessage(content).then(() => window.location.reload());
     };
 
     return (
@@ -26,7 +29,7 @@ const MessagesPage = () => {
             {/*               }}/>*/}
             {/*    </Modal>*/}
             {/*)}*/}
-            <MessageList/>
+            <MessageList temporaryPosts = {temporaryPosts}/>
             <form className={styles.uploadMessage} onSubmit={(e) => {
                 handleSubmit(e)
             }}>
